@@ -6,5 +6,5 @@
  */
 void prompt_user(void)
 {	/* prints indication to prompt */
-	prnt("$ ");
+	prnt("#cisfun$ ");
 }

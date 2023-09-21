@@ -6,6 +6,6 @@
  * Return: void
  */
 void prnt(const char *string)
-{
+{	/* writes to stdout */
 	write(1, string, strlen(string));
 }

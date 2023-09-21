@@ -7,21 +7,32 @@
  */
 void exec_order(const char *order)
 {
-	pid_t baby_pid = fork();
+	char *params[122], *tkz; /* arguments, token */
+	int param_c = 0; /* argument count */
+	pid_t baby_pid = fork(); /* make child process ID */
 
-	if (baby_pid == 0)
+	if (baby_pid == 0) /* on success */
 	{
-		execlp(order, order, (char *)NULL);
-		perror("execlp");
+		tkz = strtok((char *)order, " "); /* start at first token */
+		while (tkz) /* while token doesn't equal NULL */
+		{
+			params[param_c++] =  tkz; /* assign 1st token */
+			tkz = strtok(NULL, " "); /* move to next token */
+		}
+		params[param_c] = NULL; /* terminate string */
+
+		execvp(params[0], params); /* execute command */
+
+		perror(params[0]); /* print error on failure */
 		exit(EXIT_FAILURE);
 	}
-	else if (baby_pid == -1)
+	else if (baby_pid == -1) /* on failure */
 	{
-		perror("fork");
+		perror(params[0]); /* print error on failure */
 		exit(EXIT_FAILURE);
 	}
 	else
-	{
+	{	/* wait until child process is finished */
 		wait(NULL);
 	}
 }

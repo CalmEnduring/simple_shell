@@ -5,6 +5,6 @@
  * Return: void
  */
 void prompt_user(void)
-{
-	prnt("at your shelly$ ");
+{	/* prints indication to prompt */
+	prnt("$ ");
 }

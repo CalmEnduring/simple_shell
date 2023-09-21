@@ -6,13 +6,13 @@
  */
 int main(void)
 {
-	char order[100];
+	char order[100]; /* holds stdin from user */
 
-	while (5)
+	while (5) /* infinite loop */
 	{
-		prompt_user();
-		read_order(order, sizeof(order));
-		exec_order(order);
+		prompt_user(); /* prompt user for commands */
+		read_order(order, sizeof(order)); /* read stdin from user */
+		exec_order(order); /* execute command */
 	}
 	return (0);
 }

@@ -23,12 +23,12 @@ void exec_order(const char *order)
 
 		execvp(params[0], params); /* execute command */
 
-		perror(params[0]); /* print error on failure */
+		perror("./shelly"); /* print error on failure */
 		exit(EXIT_FAILURE);
 	}
 	else if (baby_pid == -1) /* on failure */
 	{
-		perror(params[0]); /* print error on failure */
+		perror("./shelly"); /* print error on failure */
 		exit(EXIT_FAILURE);
 	}
 	else

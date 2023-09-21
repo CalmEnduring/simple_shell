@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	char order[100]; /* holds stdin from user */
+	char order[150];
 
 	while (5) /* infinite loop */
 	{
